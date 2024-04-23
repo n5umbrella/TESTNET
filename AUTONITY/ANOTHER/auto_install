@@ -1,0 +1,81 @@
+
+sudo apt update && apt upgrade -y
+sudo apt install git curl wget -y
+sudo apt install make curl wget clang pkg-config libssl-dev jq build-essential -y
+sudo apt install pipx -y
+#pipx install --force https://github.com/autonity/aut/releases/download/v0.4.0.dev0/aut-0.4.0.dev0-py3-none-any.whl
+pipx install --force git+https://github.com/autonity/aut.git
+pipx ensurepath
+source ~/.bashrc
+mkdir autonity-client && cd autonity-client 
+wget https://github.com/autonity/autonity/releases/download/v0.13.0/autonity-linux-amd64-0.13.0.tar.gz
+tar -xzf autonity-linux-amd64-0.13.0.tar.gz
+rm -rf autonity-linux-amd64-0.13.0.tar.gz
+sudo cp -r autonity /usr/local/bin/autonity
+autonity version
+
+mkdir autonity-chaindata
+
+cd  $HOME
+ver="1.21.3" && \
+wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
+sudo rm -rf /usr/local/go && \
+sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
+rm "go$ver.linux-amd64.tar.gz" && \
+echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile && \
+source $HOME/.bash_profile && \
+go version
+
+git clone https://github.com/autonity/autonity.git autonity1
+cd autonity1
+make all
+mv build/bin/ethkey /usr/local/bin
+cd  $HOME
+rm -rf $HOME/autonity1
+ethkey --version
+your_ip="$(curl ifconfig.me)"
+sudo tee /etc/systemd/system/autonityd.service > /dev/null << EOF
+[Unit]
+Description=Autonityd Node
+After=network-online.target
+StartLimitIntervalSec=0
+[Service]
+User=$USER
+Restart=always
+RestartSec=3
+LimitNOFILE=65535
+ExecStart=autonity \
+    --datadir ${HOME}/autonity-client/autonity-chaindata  \
+    --piccadilly  \
+    --http  \
+    --http.addr 0.0.0.0 \
+    --http.api aut,eth,net,txpool,web3,admin  \
+    --http.vhosts \* \
+    --ws  \
+    --ws.addr 0.0.0.0 \
+    --ws.api aut,eth,net,txpool,web3,admin  \
+    --nat extip:$your_ip \
+    
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cd  $HOME
+
+sudo tee .autrc > /dev/null << EOF
+[aut]
+rpc_endpoint=http://127.0.0.1:8545
+keyfile=/root/piccadilly-keystore/wallet.key
+EOF
+
+
+sudo systemctl daemon-reload
+sudo systemctl enable autonityd
+sudo systemctl restart autonityd
+cd  $HOME
+mkdir piccadilly-keystore && chmod +x piccadilly-keystore && cd $HOME
+cp -r $HOME/autonity-client/autonity-chaindata/autonity/autonitykeys $HOME/piccadilly-keystore/
+
+echo "Install Autonity, GO, Ethkey OK"
