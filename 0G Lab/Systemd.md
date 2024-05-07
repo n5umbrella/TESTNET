@@ -45,7 +45,7 @@ evmosd version
 ### Initialize Node
 Replace `Name` with your own moniker
 ```
-MONIKER="Name-VNBnode"
+MONIKER="Name"
 ```
 ```
 echo 'export CHAIN_ID="zgtendermint_9000-1"' >> ~/.bash_profile
