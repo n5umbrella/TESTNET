@@ -251,7 +251,7 @@ initiad status | jq .SyncInfo.catching_up
 ```bash
 initiad q bank balances $(initiad keys show $WALLET_NAME -a) 
 ```
-### 17. Create a validator
+### 17. Create a validator (Update GAS-20240612)
 ```bash
 initiad tx mstaking create-validator \
   --amount=1000000uinit \
@@ -265,7 +265,7 @@ initiad tx mstaking create-validator \
   --identity="" \
   --website="" \
   --details="Initia to the moon!" \
-  --gas=2000000 --fees=300000uinit \
+  --gas=2000000 --fees=563000move/944f8dd8dc49f96c25fea9849f16436dcfa6d564eec802f3ef7f8b3ea85368ff \
   -y
 ```
 Do not forget to save `priv_validator_key.json` file located in $HOME/.initia/config/
@@ -428,7 +428,12 @@ initiad q mstaking validator $(initiad keys show $WALLET_NAME --bech val -a)
 initiad q slashing signing-info $(initiad tendermint show-validator)
 ```
 ### Unjail your validator 
+New: update GAS (20240612)
 ```bash
+initiad tx slashing unjail --from WALLET_NAME --chain-id initiation-1 --gas=2000000 --fees=563000move/944f8dd8dc49f96c25fea9849f16436dcfa6d564eec802f3ef7f8b3ea85368ff -y 
+```
+Old
+```
 initiad tx slashing unjail --from $WALLET_NAME --gas=2000000 --fees=300000uinit -y
 ```
 ### Delegate tokens to your validator 
