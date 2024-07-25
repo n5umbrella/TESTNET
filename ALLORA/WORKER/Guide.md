@@ -4,7 +4,8 @@
 
 # ALLORA WORKER. 
 
-![image](https://github.com/user-attachments/assets/278b286c-3917-4372-b3fd-66b6f949b077)
+![image](https://github.com/user-attachments/assets/a97b85c0-f11c-42f3-94ab-4d9022b7f34a)
+
 
 ### Full guide
 
@@ -77,7 +78,8 @@ cd faceworker/worker
 
 ### 3. Creating the inference server
 
-![image](https://github.com/user-attachments/assets/6b1ecdfe-65b2-4c99-b958-c2be02bd8854)
+![image](https://github.com/user-attachments/assets/87d0a583-d81c-4040-be6e-21911dca7611)
+
 
 **`Full code for 9 topics`**
 
@@ -159,7 +161,9 @@ if __name__ == '__main__':
 
 
 Register `API_KEY` on Coingecko: `https://www.coingecko.com/en/api/pricing`
-![image](https://github.com/user-attachments/assets/10bbd71a-801c-4a7e-b0ac-3bb65dd83928)
+
+![image](https://github.com/user-attachments/assets/dd13fa45-55a5-4dcc-beb3-9e14f0a5fe00)
+
 
 
 ```
@@ -253,7 +257,8 @@ CMD ["gunicorn", "-b", ":8000", "app:app"]
 
 ### 7. Update config
 
-![image](https://github.com/user-attachments/assets/b35679a4-3994-45aa-84c4-bb7657472444)
+![image](https://github.com/user-attachments/assets/9414d56c-cf0f-4051-9a11-7c503a53a13f)
+
 
 Update your `hex_coded_pk`:
 
@@ -296,11 +301,13 @@ Add the inference service in the `prod-docker-compose.yaml` before the `worker` 
 
 Change `--allora-chain-topic-id` to `number of topic`
 
-![image](https://github.com/user-attachments/assets/edb07da4-6338-4417-8694-0e18ad2c456d)
+![image](https://github.com/user-attachments/assets/0004cd60-7d49-4f5a-9759-9fb2b7c7a818)
+
 
 ### Final: Run a Worker Node
 
-![image](https://github.com/user-attachments/assets/0925d38c-3b1e-4c20-a2dc-1c0a3d16bc47)
+![image](https://github.com/user-attachments/assets/d5ca4ec3-69a1-45d1-9ff0-12f33ac0e061)
+
 
 ```
 #BUILD AND RUN BACKGROUND
@@ -314,7 +321,8 @@ docker compose -f prod-docker-compose.yaml logs -f
 
 Check your worker on chain like this
 
-![image](https://github.com/user-attachments/assets/707966bc-e30f-441e-b956-327119437478)
+![image](https://github.com/user-attachments/assets/30b7d23c-061a-4507-bb58-4a5d01740f7e)
+
 
 
 Categorized in: Node
