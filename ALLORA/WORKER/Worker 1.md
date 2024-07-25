@@ -56,7 +56,8 @@ git branch -a
 
 Như hình dưới là đã chuyển sang nhánh `worker-face-10m`:
 
-![image](https://github.com/user-attachments/assets/87c24794-7cbd-4e90-9459-ac03513ed3bb)
+![image](https://github.com/user-attachments/assets/2f0d2b5f-7b6f-4dca-b77f-c0b4bd0a62f6)
+
 
 ## Branch `worker-face-10m`
 
