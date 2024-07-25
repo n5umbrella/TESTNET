@@ -62,7 +62,9 @@ git branch -a
 ```
 
 Như hình dưới là đã chuyển sang nhánh `worker-face-24h`:
-![image](https://github.com/user-attachments/assets/49333f6a-5b96-4e96-ae9b-8bb2df49c3dc)
+
+![image](https://github.com/user-attachments/assets/eba25b8a-394a-425d-a3a3-ad10f44d1422)
+
 
 
 
