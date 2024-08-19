@@ -188,6 +188,7 @@ fiammad tx staking edit-validator \
 --details "I love blockchain ❤️" \
 --from $WALLET \
 --chain-id fiamma-testnet-1 \
+--fees=500ufia \
 --gas auto --gas-adjustment 1.5 \
 -y 
 ```
