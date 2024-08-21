@@ -53,6 +53,11 @@ git clone https://github.com/allora-network/allora-chain.git
 cd allora-chain
 ```
 
+### Checkout branch:
+```
+git branch -a
+```
+
 ### Checkout về phiên bản trước:
 ```
 git checkout 812ab2d855f164b9798b09ca043d769dbddffd7e
