@@ -116,7 +116,6 @@ Kiểm tra trạng thái đồng bộ:
 curl -so- http://localhost:26657/status | jq .result.sync_info.catching_up
 ```
 
-
 ## thông tin
 Dùng rpc này cho worker thì dùng ip của server thay cho `localhost`: `http://<ip server>:26657 thay cho http://localhost:26657`
 
