@@ -54,19 +54,6 @@ go version
 ```
 
 
-OR:
-
-```
-ver="1.22.4"
-wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz"
-rm "go$ver.linux-amd64.tar.gz"
-echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> $HOME/.bash_profile
-source $HOME/.bash_profile
-go version
-```
-
 ## INSTALL
 
 ### Download Story-Geth binary
@@ -91,8 +78,12 @@ story version
 
 ### Init Iliad node
 ```
-story init --network iliad
+NODE_NAME="Your_node_name"
+story init NODE_NAME --network iliad
 ```
+
+![image](https://github.com/user-attachments/assets/3c481b9e-7926-4b1b-9233-8c2dd5c7f2e1)
+
 
 ### Create story-geth service file
 ```
@@ -102,10 +93,10 @@ Description=Story Geth Client
 After=network.target
 
 [Service]
-User=root
-ExecStart=/root/go/bin/story-geth --iliad --syncmode full
+User=$USER
+ExecStart=${HOME}/go/bin/story-geth --iliad --syncmode full
 Restart=on-failure
-RestartSec=3
+RestartSec=10
 LimitNOFILE=4096
 
 [Install]
@@ -122,10 +113,10 @@ Description=Story Consensus Client
 After=network.target
 
 [Service]
-User=root
-ExecStart=/root/go/bin/story run
+User=$USER
+ExecStart=${HOME}/go/bin/story run
 Restart=on-failure
-RestartSec=3
+RestartSec=10
 LimitNOFILE=4096
 
 [Install]
