@@ -131,6 +131,7 @@ sudo systemctl start story-geth && \
 sudo systemctl enable story-geth && \
 sudo systemctl status story-geth
 ```
+![image](https://github.com/user-attachments/assets/d7dc9661-bef7-4eb3-8d77-bcdf6202291a)
 
 
 ### Reload and start story
@@ -140,12 +141,14 @@ sudo systemctl start story && \
 sudo systemctl enable story && \
 sudo systemctl status story
 ```
+![image](https://github.com/user-attachments/assets/a02f5e87-1fa7-47fd-92c6-2f869f28568c)
 
 
 ### Check logs
 ```
 sudo journalctl -u story-geth -f -o cat
 ```
+![image](https://github.com/user-attachments/assets/8c8850ab-4584-412b-b7e1-7c469965653e)
 
 _**Wait a minute for connect peers**_
 
@@ -153,6 +156,7 @@ _**Wait a minute for connect peers**_
 ```
 sudo journalctl -u story -f -o cat
 ```
+![image](https://github.com/user-attachments/assets/3eb555c6-3a3e-4d8c-89db-c6df1e7e11ea)
 
 
 ### Check sync status
@@ -160,6 +164,7 @@ sudo journalctl -u story -f -o cat
 curl localhost:26657/status | jq
 ```
 
+![image](https://github.com/user-attachments/assets/6d4b6ce0-e3eb-482f-a7db-9589cc6abed0)
 
 _**Waiting for your node**_
 
