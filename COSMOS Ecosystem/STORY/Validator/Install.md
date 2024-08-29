@@ -37,6 +37,25 @@ sudo apt install curl tar wget clang pkg-config libssl-dev libleveldb-dev jq bui
 ```
 
 ### Install GO:
+
+# Install Go:
+```
+cd $HOME
+VER="1.22.4"
+wget "https://golang.org/dl/go$VER.linux-amd64.tar.gz"
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf "go$VER.linux-amd64.tar.gz"
+rm "go$VER.linux-amd64.tar.gz"
+[ ! -f ~/.bash_profile ] && touch ~/.bash_profile
+echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
+source $HOME/.bash_profile
+[ ! -d ~/go/bin ] && mkdir -p ~/go/bin
+go version
+```
+
+
+OR:
+
 ```
 ver="1.22.4"
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
